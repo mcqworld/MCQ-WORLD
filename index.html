@@ -61,9 +61,20 @@
         .textured-bg {
              background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dbeafe' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        #logo {
-            width: 180px; /* Adjust this value to make your logo bigger or smaller */
-            height: auto; /* Keeps the logo from stretching */
+        /* --- NEW: Promo Popup Styles --- */
+        #promo-popup-backdrop {
+            transition: opacity 0.3s ease;
+        }
+        #promo-popup-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: scale(0.95);
+        }
+        #promo-popup.visible #promo-popup-backdrop {
+            opacity: 1;
+        }
+        #promo-popup.visible #promo-popup-content {
+            opacity: 1;
+            transform: scale(1);
         }
     </style>
 </head>
@@ -72,8 +83,9 @@
     <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-200">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#" class="flex items-center">
-                <img src="images/logo.png" alt="MCQ World Logo" id="logo">
+            <a href="#" class="text-2xl font-bold text-slate-800 flex items-center">
+                <i data-lucide="book-check" class="w-7 h-7 mr-2 text-sky-600"></i>
+                MCQ World
             </a>
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
@@ -146,7 +158,7 @@
             </div>
         </section>
 
-        <!-- Products Section -- CRITICAL FIX: REMOVED FADE-IN ANIMATION CLASS -->
+        <!-- Products Section -->
         <section id="products" class="py-16 sm:py-20">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center text-slate-800 mb-4">Our Collection</h2>
@@ -219,8 +231,9 @@
     <!-- Footer -->
     <footer class="bg-slate-800 text-slate-300 pt-16 pb-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-             <a href="#" class="flex items-center justify-center">
-                <img src="images/logo.png" alt="MCQ World Logo" class="w-48">
+             <a href="#" class="text-3xl font-bold text-white flex items-center justify-center">
+                <i data-lucide="book-check" class="w-8 h-8 mr-2"></i>
+                MCQ World
             </a>
             <p class="mt-4 max-w-md mx-auto">Your success is our mission. Get in touch with us for any queries.</p>
             <div class="mt-8 flex justify-center space-x-6">
@@ -277,6 +290,25 @@
             </div>
         </div>
     </div>
+
+    <!-- --- NEW: Promotional Popup --- -->
+    <div id="promo-popup" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div id="promo-popup-backdrop" class="fixed inset-0 bg-black bg-opacity-60 opacity-0"></div>
+        
+        <!-- Modal Content -->
+        <div id="promo-popup-content" class="relative bg-white w-full max-w-md rounded-2xl shadow-2xl p-8 text-center opacity-0">
+            <button id="promo-popup-close" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="text-6xl mb-4">🎉</div>
+            <h2 class="text-3xl font-extrabold text-slate-800">Grand Student Sale!</h2>
+            <p class="mt-2 text-slate-500">Get a massive <span class="font-bold text-sky-600">52% DISCOUNT</span> on all our premium question packs for a limited time!</p>
+            <a href="#products" id="promo-popup-cta" class="mt-8 btn-gradient text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 inline-block shadow-lg">
+                Shop The Sale Now
+            </a>
+        </div>
+    </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -327,6 +359,11 @@
             const faqContainer = document.getElementById('faq-container');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
+            // --- NEW: Promo Popup Elements ---
+            const promoPopup = document.getElementById('promo-popup');
+            const promoPopupCloseBtn = document.getElementById('promo-popup-close');
+            const promoPopupCtaBtn = document.getElementById('promo-popup-cta');
+            const promoPopupBackdrop = document.getElementById('promo-popup-backdrop');
 
             // --- FUNCTIONS ---
             
@@ -483,12 +520,43 @@
                 mobileMenu.classList.toggle('hidden');
             });
             
-            // --- NEW: Close mobile menu when a link is clicked ---
+            // Close mobile menu when a link is clicked
             document.querySelectorAll('.mobile-link').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                 });
             });
+
+            // --- NEW: Promo Popup Logic ---
+            const showPromoPopup = () => {
+                promoPopup.classList.remove('hidden');
+                promoPopup.classList.add('flex');
+                // Use a short timeout to allow the element to be in the DOM before adding the visible class for the transition
+                setTimeout(() => {
+                    promoPopup.classList.add('visible');
+                }, 50);
+            };
+
+            const hidePromoPopup = () => {
+                promoPopup.classList.remove('visible');
+                // Wait for the transition to finish before hiding the element completely
+                setTimeout(() => {
+                    promoPopup.classList.add('hidden');
+                    promoPopup.classList.remove('flex');
+                }, 300); // Should match the transition duration
+            };
+            
+            // Show popup after 2.5 seconds if it hasn't been shown in this session
+            if (!sessionStorage.getItem('promoShown')) {
+                setTimeout(() => {
+                    showPromoPopup();
+                    sessionStorage.setItem('promoShown', 'true');
+                }, 2500);
+            }
+
+            promoPopupCloseBtn.addEventListener('click', hidePromoPopup);
+            promoPopupCtaBtn.addEventListener('click', hidePromoPopup);
+            promoPopupBackdrop.addEventListener('click', hidePromoPopup);
             
             // --- INITIALIZATION ---
             renderProducts();
