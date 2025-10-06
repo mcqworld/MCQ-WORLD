@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ World - Grand Sale! 52% OFF Everything!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #1e293b; /* slate-800 */
+            background-image: radial-gradient(circle at top right, rgba(14, 165, 233, 0.2), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.2), transparent 50%);
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .filter-btn.active {
+            background-color: #0284c7; /* sky-600 */
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .faq-question {
+            cursor: pointer;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .pdf-preview {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #e2e8f0; /* slate-200 */
+        }
+        .btn-gradient {
+            background-image: linear-gradient(to right, #0ea5e9, #2563eb);
+        }
+        .btn-gradient:hover {
+            background-image: linear-gradient(to right, #0284c7, #1d4ed8);
+        }
+        /* Fade-in animation on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .textured-bg {
+             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dbeafe' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-slate-200">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-800 flex items-center">
+                <i data-lucide="book-check" class="w-7 h-7 mr-2 text-sky-600"></i>
+                MCQ World
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                 <a href="#products" class="text-slate-600 hover:text-sky-600 font-medium transition-colors">Browse Packs</a>
+                 <a href="#why-us" class="text-slate-600 hover:text-sky-600 font-medium transition-colors">Why Choose Us</a>
+                 <a href="#testimonials" class="text-slate-600 hover:text-sky-600 font-medium transition-colors">Reviews</a>
+                 <a href="#faq" class="text-slate-600 hover:text-sky-600 font-medium transition-colors">FAQ</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg text-white py-20 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">🎉 Grand Sale! 52% OFF On All Question Packs 🎉</h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-300">Trusted by 10,000+ students. Plus, get an extra 2% discount at checkout!</p>
+                <div class="mt-8">
+                    <a href="#products" class="btn-gradient text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 inline-block shadow-lg">
+                        Shop The Sale
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="why-us" class="py-16 sm:py-20 bg-white fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-800">The Smart Way to Prepare</h2>
+                    <p class="mt-3 max-w-2xl mx-auto text-lg text-slate-500">Everything you need to ace your exams, all in one place.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-sky-100 p-4 rounded-full">
+                            <i data-lucide="award" class="w-8 h-8 text-sky-600"></i>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-slate-800">Expert Verified Content</h3>
+                        <p class="mt-2 text-slate-500">All questions are curated and verified by subject matter experts to ensure accuracy and relevance to the latest syllabus.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                         <div class="bg-sky-100 p-4 rounded-full">
+                            <i data-lucide="download-cloud" class="w-8 h-8 text-sky-600"></i>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-slate-800">Instant Download</h3>
+                        <p class="mt-2 text-slate-500">Get immediate access to your PDF question packs right after a successful payment. No waiting, start preparing instantly.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                         <div class="bg-sky-100 p-4 rounded-full">
+                            <i data-lucide="wallet" class="w-8 h-8 text-sky-600"></i>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-slate-800">Affordable Pricing</h3>
+                        <p class="mt-2 text-slate-500">We believe in high-quality education for everyone. Our packs are priced affordably to help you succeed without breaking the bank.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16 sm:py-20 fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-4">Our Collection</h2>
+                <p class="text-center text-slate-500 mb-12 max-w-xl mx-auto">Find the perfect question pack to boost your preparation and score higher.</p>
+
+                <!-- Filters -->
+                <div id="filters" class="flex flex-wrap justify-center gap-2 mb-12">
+                    <button class="filter-btn active py-2 px-4 bg-white border border-slate-300 text-slate-600 rounded-full hover:bg-sky-100 hover:border-sky-300 transition-all duration-300" data-filter="all">All</button>
+                    <button class="filter-btn py-2 px-4 bg-white border border-slate-300 text-slate-600 rounded-full hover:bg-sky-100 hover:border-sky-300 transition-all duration-300" data-filter="Reasoning">Reasoning</button>
+                    <button class="filter-btn py-2 px-4 bg-white border border-slate-300 text-slate-600 rounded-full hover:bg-sky-100 hover:border-sky-300 transition-all duration-300" data-filter="Quant">Quant</button>
+                    <button class="filter-btn py-2 px-4 bg-white border border-slate-300 text-slate-600 rounded-full hover:bg-sky-100 hover:border-sky-300 transition-all duration-300" data-filter="English">English</button>
+                    <button class="filter-btn py-2 px-4 bg-white border border-slate-300 text-slate-600 rounded-full hover:bg-sky-100 hover:border-sky-300 transition-all duration-300" data-filter="Class 12">Class 12</button>
+                    <button class="filter-btn py-2 px-4 bg-white border border-slate-300 text-slate-600 rounded-full hover:bg-sky-100 hover:border-sky-300 transition-all duration-300" data-filter="Class 10">Class 10</button>
+                </div>
+
+                <!-- Product Grid -->
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Product cards will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 sm:py-20 bg-white textured-bg fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-800">What Our Students Say</h2>
+                    <p class="mt-3 max-w-2xl mx-auto text-lg text-slate-500">Real success stories from students who aced their exams with our packs.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
+                        <i data-lucide="quote" class="w-10 h-10 text-sky-200"></i>
+                        <p class="text-slate-600 mt-4">"The Physics and Chemistry question banks were a lifesaver. The questions were so relevant to the board pattern that I felt completely prepared. Scored 95% in both!"</p>
+                        <div class="mt-6">
+                            <p class="font-semibold text-slate-800">Priya S.</p>
+                            <p class="text-sm text-slate-500">Class 12 Topper</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
+                        <i data-lucide="quote" class="w-10 h-10 text-sky-200"></i>
+                        <p class="text-slate-600 mt-4">"The Quantitative Aptitude and Reasoning MCQs are top-notch. The difficulty level is perfect for competitive exams. This was the best investment for my preparation."</p>
+                         <div class="mt-6">
+                            <p class="font-semibold text-slate-800">Amit K.</p>
+                            <p class="text-sm text-slate-500">Bank PO Aspirant</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
+                        <i data-lucide="quote" class="w-10 h-10 text-sky-200"></i>
+                        <p class="text-slate-600 mt-4">"I was struggling with Social Studies, but the question bank made revision so much easier. The variety of questions helped me cover every topic thoroughly. Thank you, MCQ World!"</p>
+                         <div class="mt-6">
+                            <p class="font-semibold text-slate-800">Sneha R.</p>
+                            <p class="text-sm text-slate-500">Class 10 Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 sm:py-20 fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-4">Frequently Asked Questions</h2>
+                <div id="faq-container" class="max-w-3xl mx-auto mt-12 space-y-4">
+                    <!-- FAQ items will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300 pt-16 pb-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+             <a href="#" class="text-3xl font-bold text-white flex items-center justify-center">
+                <i data-lucide="book-check" class="w-8 h-8 mr-2"></i>
+                MCQ World
+            </a>
+            <p class="mt-4 max-w-md mx-auto">Your success is our mission. Get in touch with us for any queries.</p>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#products" class="text-slate-400 hover:text-white transition-colors">Products</a>
+                <a href="#why-us" class="text-slate-400 hover:text-white transition-colors">Why Us</a>
+                <a href="#faq" class="text-slate-400 hover:text-white transition-colors">FAQ</a>
+            </div>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="twitter"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="facebook"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="instagram"></i></a>
+            </div>
+            <p class="mt-10 text-sm text-slate-400">&copy; 2025 MCQ World. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden">
+        <div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-60"></div>
+        <div class="relative flex items-center justify-center min-h-screen p-4">
+            <div class="relative bg-white w-full max-w-4xl rounded-lg shadow-2xl flex flex-col m-4 max-h-[90vh]">
+                <div class="flex justify-between items-center p-5 border-b">
+                    <h3 id="modal-product-name" class="text-2xl font-semibold text-slate-800">Product Name</h3>
+                    <button id="close-product-modal" class="text-slate-500 hover:text-slate-800">
+                        <i data-lucide="x" class="w-7 h-7"></i>
+                    </button>
+                </div>
+                <div class="p-6 overflow-y-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-3">What You'll Get</h4>
+                            <ul id="modal-product-benefits" class="space-y-2 text-slate-600">
+                                <!-- Benefits will be injected here -->
+                            </ul>
+                            <div class="mt-6 bg-slate-50 p-4 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                     <div class="flex items-baseline gap-2">
+                                        <span id="modal-product-price" class="text-3xl font-extrabold text-sky-600"></span>
+                                        <del id="modal-original-price" class="text-slate-400 text-lg"></del>
+                                    </div>
+                                    <a id="modal-buy-now-link" href="#" target="_blank" class="buy-now-btn btn-gradient text-white font-semibold py-3 px-8 rounded-lg hover:bg-sky-700 transition text-lg shadow">
+                                        Buy Now
+                                    </a>
+                                </div>
+                                <p class="text-sm text-green-600 font-semibold mt-2 text-center">🎉 Extra 2% off will be applied at checkout!</p>
+                            </div>
+                        </div>
+                        <div>
+                             <h4 class="text-lg font-bold text-slate-900 mb-3">Preview First 2 Pages</h4>
+                             <iframe id="modal-pdf-preview" class="pdf-preview rounded-lg" src="" title="PDF Preview"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- ACTION REQUIRED: Create your UNIQUE 2-page sample PDFs, upload them, and paste the links below. ---
+            const professionalSamplePdf = 'https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf'; // <-- REPLACE THIS WITH YOUR GOOGLE DRIVE LINK
+            
+            const products = [
+                 // Competitive Exam MCQs
+                { id: 1, name: 'Logical Reasoning MCQs', category: 'Reasoning', price: 199, questionCount: '100+', description: '100+ MCQs covering all major topics.', image: 'https://placehold.co/600x400/0284c7/FFFFFF?text=Reasoning', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Master core concepts of logical reasoning.', 'Practice with a wide variety of question types.', 'Improve your problem-solving speed and accuracy.'] },
+                { id: 2, name: 'Advanced Quantitative Aptitude MCQs', category: 'Quant', price: 249, questionCount: '100+', description: '100+ Challenging quant problems.', image: 'https://placehold.co/600x400/16a34a/FFFFFF?text=Quant', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Tackle complex problems with confidence.', 'Learn time-saving tricks and shortcuts.', 'Ideal for competitive exams like CAT and Bank PO.'] },
+                { id: 3, name: 'Complete English Grammar MCQs', category: 'English', price: 149, questionCount: '100+', description: '100+ Exhaustive questions on grammar rules.', image: 'https://placehold.co/600x400/c026d3/FFFFFF?text=English', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Strengthen your grammar fundamentals.', 'Avoid common mistakes in exams.', 'Improve your written and spoken English.'] },
+                { id: 7, name: 'Data Interpretation MCQs', category: 'Reasoning', price: 219, questionCount: '100+', description: '100+ Practice sets for charts, graphs, and tables.', image: 'https://placehold.co/600x400/0891b2/FFFFFF?text=Data', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Improve your data analysis skills.', 'Practice with real-world chart and graph problems.', 'Crucial for banking, SSC, and other government exams.'] },
+
+                // Class 12 Top Tier (~₹69 final price)
+                { id: 4, name: 'Class 12 Physics Question Bank', category: 'Class 12', price: 149, questionCount: '60+', description: '60+ Chapter-wise Questions aligned with the syllabus.', image: 'https://placehold.co/600x400/d97706/FFFFFF?text=Physics', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Cover the entire Class 12 Physics syllabus.', 'Practice questions based on the latest exam pattern.', 'Boost your confidence for board exams and NEET/JEE.'] },
+                { id: 6, name: 'Class 12 Chemistry Question Bank', category: 'Class 12', price: 149, questionCount: '60+', description: '60+ Questions for Organic, Inorganic, and Physical Chemistry.', image: 'https://placehold.co/600x400/d97706/FFFFFF?text=Chemistry', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Comprehensive coverage of the entire syllabus.', 'Master reactions, formulas, and concepts.', 'Prepare effectively for boards and competitive exams.'] },
+                { id: 17, name: 'Class 12 Maths Question Bank', category: 'Class 12', price: 149, questionCount: '60+', description: '60+ Questions on Calculus, Vectors, 3D Geometry, and Probability.', image: 'https://placehold.co/600x400/d97706/FFFFFF?text=Maths', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Strengthen your calculus and algebra concepts.', 'Practice with a wide range of problem types.', 'Prepare for board exams and engineering entrances (JEE).'] },
+                { id: 11, name: 'Class 12 Accountancy Question Bank', category: 'Class 12', price: 149, questionCount: '60+', description: '60+ Questions on partnership firms, company accounts, and financial statements.', image: 'https://placehold.co/600x400/1d4ed8/FFFFFF?text=Accounts', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Master fundamental accounting principles.', 'Practice with complex adjustment entries.', 'Prepare for board exams and CA foundation.'] },
+
+                // Class 12 Normal Tier & Class 10 Top Tier (~₹49 final price)
+                { id: 12, name: 'Class 12 Business Studies Question Bank', category: 'Class 12', price: 99, questionCount: '60+', description: '60+ Questions covering principles of management, marketing, and finance.', image: 'https://placehold.co/600x400/1d4ed8/FFFFFF?text=Biz.+Studies', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Understand the functions of management.', 'Learn key business and marketing concepts.', 'Score high with case-study based questions.'] },
+                { id: 13, name: 'Class 12 Economics Question Bank', category: 'Class 12', price: 99, questionCount: '60+', description: '60+ Questions on Micro & Macroeconomics, including National Income.', image: 'https://placehold.co/600x400/1d4ed8/FFFFFF?text=Economics', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Grasp complex economic theories.', 'Practice with graph and data-based questions.', 'Excel in your board exams and entrance tests.'] },
+                { id: 14, name: 'Class 12 History Question Bank', category: 'Class 12', price: 99, questionCount: '60+', description: '60+ Questions on Themes in Indian History I, II & III.', image: 'https://placehold.co/600x400/7c3aed/FFFFFF?text=History', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Cover the complete NCERT history syllabus.', 'Memorize key dates, figures, and events.', 'Practice with map and source-based questions.'] },
+                { id: 15, name: 'Class 12 Political Science Question Bank', category: 'Class 12', price: 99, questionCount: '60+', description: '60+ Questions on Contemporary World Politics & Politics in India Since Independence.', image: 'https://placehold.co/600x400/7c3aed/FFFFFF?text=Pol.+Sci.', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Understand key political concepts and events.', 'Prepare for Assertion-Reason questions.', 'Build a strong base for university entrance exams.'] },
+                { id: 18, name: 'Class 10 Maths Question Bank', category: 'Class 10', price: 99, questionCount: '60+', description: '60+ Questions on Trigonometry, Algebra, Geometry, and Statistics.', image: 'https://placehold.co/600x400/be123c/FFFFFF?text=Maths', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Master all formulas and theorems.', 'Practice with application-based questions.', 'Build a solid foundation for competitive exams.'] },
+                { id: 8, name: 'Class 10 Social Studies Question Bank', category: 'Class 10', price: 99, questionCount: '60+', description: '60+ Questions covering History, Civics, Geography, and Economics.', image: 'https://placehold.co/600x400/be123c/FFFFFF?text=SST', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Memorize important dates, events, and facts.', 'Covers all chapters of the NCERT syllabus.', 'A complete revision tool for your SST exam.'] },
+                
+                // Class 10 Normal Tier (~₹40 final price)
+                { id: 5, name: 'Class 10 Physics Question Bank', category: 'Class 10', price: 89, questionCount: '60+', description: '60+ Questions covering light, electricity, and magnetism.', image: 'https://placehold.co/600x400/be123c/FFFFFF?text=Physics', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Master fundamental physics concepts.', 'Practice with numericals and theory questions.', 'Build a strong foundation for Class 11.'] },
+                { id: 9, name: 'Class 10 Chemistry Question Bank', category: 'Class 10', price: 89, questionCount: '60+', description: '60+ Questions on chemical reactions, acids, bases, and carbon compounds.', image: 'https://placehold.co/600x400/be123c/FFFFFF?text=Chemistry', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Understand core chemical principles.', 'Practice balancing equations and reactions.', 'Excel in your board exam chemistry section.'] },
+                { id: 10, name: 'Class 10 Biology Question Bank', category: 'Class 10', price: 89, questionCount: '60+', description: '60+ Questions on life processes, heredity, and our environment.', image: 'https://placehold.co/600x400/be123c/FFFFFF?text=Biology', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Learn key biological terms and diagrams.', 'Strengthen your knowledge of important life processes.', 'Score full marks in the biology section.'] },
+                { id: 19, name: 'Class 10 Sanskrit Question Bank', category: 'Class 10', price: 89, questionCount: '60+', description: '60+ Questions covering grammar (Vyakaran) and literature (Shemushi).', image: 'https://placehold.co/600x400/f59e0b/FFFFFF?text=Sanskrit', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Master Sanskrit grammar rules.', 'Practice with questions from all chapters.', 'Improve your score in this high-scoring subject.'] }
+            ];
+
+            const faqs = [
+                { q: 'How will I receive the question pack after payment?', a: 'Once your payment is successful, you will instantly receive an email with a secure link to download your PDF file. The link will also be displayed on the confirmation page.' },
+                { q: 'What is the format of the question packs?', a: 'All our question packs are provided in a high-quality, printable PDF format. You can use them on any device or print them for offline practice.' },
+                { q: 'Is there a validity period for the download link?', a: 'Yes, for security reasons, the download link is typically valid for 72 hours after purchase. We recommend downloading and saving your file immediately.' },
+                { q: 'Can I get a refund if I am not satisfied?', a: 'Due to the digital nature of our products, we generally do not offer refunds. However, if you face any technical issues, please contact our support, and we will be happy to assist you.' }
+            ];
+
+            // --- DOM ELEMENTS ---
+            const productGrid = document.getElementById('product-grid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productModal = document.getElementById('product-modal');
+            const closeProductModalBtn = document.getElementById('close-product-modal');
+            const modalBackdrop = document.getElementById('modal-backdrop');
+            const faqContainer = document.getElementById('faq-container');
+
+            // --- FUNCTIONS ---
+            
+            const renderProducts = (filter = 'all') => {
+                productGrid.innerHTML = '';
+                const filteredProducts = filter === 'all' 
+                    ? products 
+                    : products.filter(p => p.category === filter);
+
+                if (filteredProducts.length === 0) {
+                    productGrid.innerHTML = `<p class="text-slate-500 col-span-full text-center">No products found in this category.</p>`;
+                    return;
+                }
+
+                filteredProducts.forEach(product => {
+                    const discountedPrice = product.price * 0.48; // 52% discount
+                    const card = document.createElement('div');
+                    card.className = 'card bg-white rounded-lg shadow-md overflow-hidden flex flex-col relative border border-slate-200';
+                    card.innerHTML = `
+                        <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10">SALE</div>
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="text-lg font-bold text-slate-800 flex-grow">${product.name}</h3>
+                             <p class="text-xs text-slate-500 mt-1 font-medium bg-slate-100 px-2 py-1 rounded-full self-start">${product.category}</p>
+                            <div class="flex items-center text-slate-500 mt-4 text-sm">
+                                <i data-lucide="list-checks" class="w-4 h-4 mr-2"></i>
+                                <span>${product.questionCount} Questions</span>
+                            </div>
+                            <div class="mt-5 pt-5 border-t border-slate-100 flex justify-between items-center">
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-2xl font-bold text-sky-600">₹${discountedPrice.toFixed(2)}</span>
+                                    <del class="text-slate-400">₹${product.price.toFixed(2)}</del>
+                                </div>
+                                <button data-product-id="${product.id}" class="view-details-btn bg-sky-100 text-sky-700 font-semibold py-2 px-4 rounded-lg hover:bg-sky-200 transition text-sm">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    productGrid.appendChild(card);
+                });
+                lucide.createIcons();
+            };
+
+            const showProductModal = (productId) => {
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+                
+                const discountedPrice = product.price * 0.48; // 52% discount
+
+                document.getElementById('modal-product-name').textContent = product.name;
+                document.getElementById('modal-product-price').textContent = `₹${discountedPrice.toFixed(2)}`;
+                document.getElementById('modal-original-price').textContent = `₹${product.price.toFixed(2)}`;
+                document.getElementById('modal-buy-now-link').href = product.instamojoLink;
+                // Add #toolbar=0 to the end of the PDF link to hide the toolbar in the iframe
+                document.getElementById('modal-pdf-preview').src = `${product.previewPdfLink}#toolbar=0`;
+                
+                const benefitsList = document.getElementById('modal-product-benefits');
+                benefitsList.innerHTML = '';
+                product.benefits.forEach(benefit => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-start';
+                    li.innerHTML = `<i data-lucide="check-circle-2" class="w-5 h-5 mr-2 text-green-500 flex-shrink-0 mt-1"></i><span>${benefit}</span>`;
+                    benefitsList.appendChild(li);
+                });
+
+                productModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                lucide.createIcons();
+            };
+
+            const hideProductModal = () => {
+                productModal.classList.add('hidden');
+                document.body.style.overflow = '';
+                document.getElementById('modal-pdf-preview').src = ''; // Stop PDF loading
+            };
+
+
+
+            const renderFaqs = () => {
+                faqContainer.innerHTML = ''; // Clear existing FAQs before rendering
+                faqs.forEach(faq => {
+                    const faqItem = document.createElement('div');
+                    faqItem.className = 'bg-slate-50 rounded-lg border border-slate-200';
+                    faqItem.innerHTML = `
+                        <div class="faq-question flex justify-between items-center p-5">
+                            <h4 class="font-semibold text-slate-800">${faq.q}</h4>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="p-5 pt-0 text-slate-600">${faq.a}</p>
+                        </div>
+                    `;
+                    faqContainer.appendChild(faqItem);
+                });
+            };
+            
+            // --- EVENT LISTENERS ---
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.dataset.filter;
+                    renderProducts(filter);
+                });
+            });
+
+            productGrid.addEventListener('click', (e) => {
+                const viewButton = e.target.closest('.view-details-btn');
+                if (viewButton) {
+                    const productId = parseInt(viewButton.dataset.productId, 10);
+                    showProductModal(productId);
+                }
+            });
+            
+            closeProductModalBtn.addEventListener('click', hideProductModal);
+            modalBackdrop.addEventListener('click', hideProductModal);
+
+            faqContainer.addEventListener('click', (e) => {
+                const question = e.target.closest('.faq-question');
+                if (question) {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        // Close other open answers
+                        document.querySelectorAll('.faq-answer').forEach(ans => {
+                            ans.style.maxHeight = null;
+                            ans.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                        });
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                }
+            });
+
+            // Intersection Observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // --- INITIALIZATION ---
+            renderProducts();
+            renderFaqs();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
+
