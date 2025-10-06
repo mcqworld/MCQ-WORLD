@@ -59,7 +59,7 @@
             opacity: 1;
         }
         .textured-bg {
-             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dbeafe' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dbeafe' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         /* --- NEW: Promo Popup Styles --- */
         #promo-popup-backdrop {
@@ -116,7 +116,7 @@
         <section class="hero-bg text-white py-20 sm:py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">🎉 Grand Sale! 52% OFF On All Question Packs 🎉</h1>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-300">Trusted by 10,000+ students. Plus, get an extra 2% discount at checkout!</p>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-300">Trusted by 1000+ students. Plus, get an extra 2% discount at checkout!</p>
                 <div class="mt-8">
                     <a href="#products" class="btn-gradient text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 inline-block shadow-lg">
                         Shop The Sale
@@ -194,7 +194,6 @@
                         <p class="text-slate-600 mt-4">"The Physics and Chemistry question banks were a lifesaver. The questions were so relevant to the board pattern that I felt completely prepared. Scored 95% in both!"</p>
                         <div class="mt-6">
                             <p class="font-semibold text-slate-800">Priya S.</p>
-                            <p class="text-sm text-slate-500">Class 12 Topper</p>
                         </div>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
@@ -202,7 +201,6 @@
                         <p class="text-slate-600 mt-4">"The Quantitative Aptitude and Reasoning MCQs are top-notch. The difficulty level is perfect for competitive exams. This was the best investment for my preparation."</p>
                          <div class="mt-6">
                             <p class="font-semibold text-slate-800">Amit K.</p>
-                            <p class="text-sm text-slate-500">Bank PO Aspirant</p>
                         </div>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-lg border border-slate-200">
@@ -210,7 +208,6 @@
                         <p class="text-slate-600 mt-4">"I was struggling with Social Studies, but the question bank made revision so much easier. The variety of questions helped me cover every topic thoroughly. Thank you, MCQ World!"</p>
                          <div class="mt-6">
                             <p class="font-semibold text-slate-800">Sneha R.</p>
-                            <p class="text-sm text-slate-500">Class 10 Student</p>
                         </div>
                     </div>
                 </div>
@@ -316,7 +313,7 @@
             const professionalSamplePdf = 'https://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf'; // <-- REPLACE THIS WITH YOUR GOOGLE DRIVE LINK
             
             const products = [
-                 // Competitive Exam MCQs
+                // Competitive Exam MCQs
                 { id: 1, name: 'Logical Reasoning MCQs', category: 'Reasoning', price: 199, questionCount: '100+', description: '100+ MCQs covering all major topics.', image: 'https://placehold.co/600x400/0284c7/FFFFFF?text=Reasoning', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Master core concepts of logical reasoning.', 'Practice with a wide variety of question types.', 'Improve your problem-solving speed and accuracy.'] },
                 { id: 2, name: 'Advanced Quantitative Aptitude MCQs', category: 'Quant', price: 249, questionCount: '100+', description: '100+ Challenging quant problems.', image: 'https://placehold.co/600x400/16a34a/FFFFFF?text=Quant', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Tackle complex problems with confidence.', 'Learn time-saving tricks and shortcuts.', 'Ideal for competitive exams like CAT and Bank PO.'] },
                 { id: 3, name: 'Complete English Grammar MCQs', category: 'English', price: 149, questionCount: '100+', description: '100+ Exhaustive questions on grammar rules.', image: 'https://placehold.co/600x400/c026d3/FFFFFF?text=English', instamojoLink: '#', previewPdfLink: professionalSamplePdf, benefits: ['Strengthen your grammar fundamentals.', 'Avoid common mistakes in exams.', 'Improve your written and spoken English.'] },
@@ -486,18 +483,19 @@
                 const question = e.target.closest('.faq-question');
                 if (question) {
                     const answer = question.nextElementSibling;
-                    const icon = question.querySelector('i');
+                    const icon = question.querySelector('svg');
                     if (answer.style.maxHeight) {
                         answer.style.maxHeight = null;
-                        icon.style.transform = 'rotate(0deg)';
+                        if (icon) icon.style.transform = 'rotate(0deg)';
                     } else {
                         // Close other open answers
                         document.querySelectorAll('.faq-answer').forEach(ans => {
                             ans.style.maxHeight = null;
-                            ans.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                            const otherIcon = ans.previousElementSibling.querySelector('svg');
+                            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
                         });
                         answer.style.maxHeight = answer.scrollHeight + 'px';
-                        icon.style.transform = 'rotate(180deg)';
+                        if (icon) icon.style.transform = 'rotate(180deg)';
                     }
                 }
             });
